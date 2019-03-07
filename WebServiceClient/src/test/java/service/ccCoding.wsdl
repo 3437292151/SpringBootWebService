@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.yu.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  name="CcCodingService" targetNamespace="http://com.yu.service.yu.com">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.yu.com" elementFormDefault="unqualified" targetNamespace="http://com.yu.service.yu.com" version="1.0">
+
+  <xs:element name="saveCcCoding" type="tns:saveCcCoding"/>
+
+  <xs:element name="saveCcCodingResponse" type="tns:saveCcCodingResponse"/>
+
+  <xs:complexType name="saveCcCoding">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="tns:ccCodingDTO"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ccCodingDTO">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ccCodingAttributeInfoList" nillable="true" type="tns:ccCodingAttributeInfoDTO"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="ccCodingDescList" nillable="true" type="tns:ccCodingDescDTO"/>
+      <xs:element minOccurs="0" name="disciplineName" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="largeName" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="smallName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ccCodingAttributeInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="attributeGroup" type="xs:string"/>
+      <xs:element minOccurs="0" name="attributeInfo" type="xs:string"/>
+      <xs:element minOccurs="0" name="attributeName" type="xs:string"/>
+      <xs:element minOccurs="0" name="ccId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ccCodingDescDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ccId" type="xs:string"/>
+      <xs:element minOccurs="0" name="language" type="xs:string"/>
+      <xs:element minOccurs="0" name="longDesc" type="xs:string"/>
+      <xs:element minOccurs="0" name="shortDesc" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveCcCodingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="saveCcCodingResponse">
+    <wsdl:part element="tns:saveCcCodingResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveCcCoding">
+    <wsdl:part element="tns:saveCcCoding" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CcCodingService">
+    <wsdl:operation name="saveCcCoding">
+      <wsdl:input message="tns:saveCcCoding" name="saveCcCoding">
+    </wsdl:input>
+      <wsdl:output message="tns:saveCcCodingResponse" name="saveCcCodingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CcCodingServiceSoapBinding" type="tns:CcCodingService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="saveCcCoding">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saveCcCoding">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveCcCodingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CcCodingService">
+    <wsdl:port binding="tns:CcCodingServiceSoapBinding" name="CcCodingServiceImplPort">
+      <soap:address location="http://localhost:8080/service/ccCoding"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
