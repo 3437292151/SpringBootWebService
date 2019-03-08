@@ -26,8 +26,8 @@ public class CcCodingClient {
 
     public static void main(String args[]) throws Exception{
 
-        //jaxWsProxyFactoryBean();
-        jaxWsDynamicClientFactory();
+        jaxWsProxyFactoryBean();
+        //jaxWsDynamicClientFactory();
     }
 
     /**
@@ -75,7 +75,6 @@ public class CcCodingClient {
     public static void jaxWsDynamicClientFactory(){
         JaxWsDynamicClientFactory dcf =JaxWsDynamicClientFactory.newInstance();
         org.apache.cxf.endpoint.Client client =dcf.createClient("http://localhost:8080/service/ccCoding?wsdl");
-        Thread.currentThread().setContextClassLoader(cl);
         //getUser 为接口中定义的方法名称  张三为传递的参数   返回一个Object数组
         Object[] objects= new Object[0];
         try {
@@ -84,7 +83,7 @@ public class CcCodingClient {
             e.printStackTrace();
         }
         //输出调用结果
-        System.out.println("*****"+objects[0].toString());
+        System.out.println("返回结果: "+objects[0].toString());
     }
 
     public static List<CcCodingDTO> getCcCondingDTO(){

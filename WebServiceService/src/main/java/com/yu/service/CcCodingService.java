@@ -1,8 +1,10 @@
 package com.yu.service;
 
+import com.yu.service.dto.AttributeValueDTO;
 import com.yu.service.dto.CcCodingDTO;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.util.List;
 
@@ -16,4 +18,7 @@ public interface CcCodingService {
 
     @WebMethod
     String saveCcCoding(List<CcCodingDTO> CcCodingArray);
+
+    @WebMethod
+    String getAtributeValue(@WebParam(name = "name") String name);
 }

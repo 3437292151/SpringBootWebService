@@ -1,6 +1,7 @@
 package com.yu.service.impl;
 
 import com.yu.service.CcCodingService;
+import com.yu.service.dto.AttributeValueDTO;
 import com.yu.service.dto.CcCodingDTO;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +26,11 @@ public class CcCodingServiceImpl implements CcCodingService {
         System.out.println(ccCodingArray);
 
         return "ok!";
+    }
+
+    @Override
+    public String getAtributeValue(String name) {
+        System.out.println(name);
+        return name;
     }
 }

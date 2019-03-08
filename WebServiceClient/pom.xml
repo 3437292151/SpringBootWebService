@@ -39,7 +39,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-codegen-plugin</artifactId>
                 <version>3.1.7</version>
@@ -49,17 +49,17 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <encoding>UTF-8</encoding>
-                            <!--<disableDirectoryScan>false</disableDirectoryScan>-->
-                            <!-- 指明生成代码所放路径 -->
+                            &lt;!&ndash;<disableDirectoryScan>false</disableDirectoryScan>&ndash;&gt;
+                            &lt;!&ndash; 指明生成代码所放路径 &ndash;&gt;
                             <sourceRoot>${project.basedir}/src/main/java</sourceRoot>
                             <wsdlOptions>
-                                <!-- 指定wsdl文件 -->
+                                &lt;!&ndash; 指定wsdl文件 &ndash;&gt;
                                 <wsdlOption>
                                     <wsdl>http://localhost:8080/service/ccCoding?wsdl</wsdl>
                                 </wsdlOption>
-                                <!--<wsdlOption>
+                                &lt;!&ndash;<wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/ccCoding.wsdl</wsdl>
-                                </wsdlOption>-->
+                                </wsdlOption>&ndash;&gt;
                             </wsdlOptions>
                         </configuration>
                         <goals>
@@ -67,7 +67,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
