@@ -1,7 +1,5 @@
 package com.yu.confing;
 
-//import com.yu.interceptor.AuthInterceptor;
-import com.yu.repository.AuthUserDao;
 import com.yu.service.CcCodingService;
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus;

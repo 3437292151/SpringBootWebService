@@ -11,8 +11,6 @@ import org.apache.cxf.binding.soap.interceptor.AbstractSoapInterceptor;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.phase.Phase;
 import org.apache.cxf.transport.http.AbstractHTTPDestination;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.soap.SOAPException;
@@ -24,15 +22,12 @@ import java.util.List;
  * @Date: 2019-5-7
  * @Description: 权限认证
  */
-@Component
 public class AuthInterceptor extends AbstractSoapInterceptor {
 
     private static final String BASIC_PREFIX = "Basic ";
 
-    @Autowired
     private AuthUserDao authUserDao;
 
-    @Autowired
     private AuthHostDao authHostDao;
 
     public AuthInterceptor() {
@@ -46,13 +41,6 @@ public class AuthInterceptor extends AbstractSoapInterceptor {
     public AuthInterceptor(String id, String phase) {
         super(id, phase);
     }
-
-
-
-    /*public AuthInterceptor( AuthUserDao authUserDao){
-        super(Phase.PRE_PROTOCOL);
-        this.authUserDao =authUserDao;
-    }*/
 
     @Override
     public void handleMessage(SoapMessage soapMessage) throws Fault {

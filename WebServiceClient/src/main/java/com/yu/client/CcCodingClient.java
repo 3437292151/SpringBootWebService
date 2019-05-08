@@ -38,8 +38,8 @@ public class CcCodingClient {
         String localPart = "CcCodingService";
         SoapClient soapClient = new SoapClient(address, namespaceURI, localPart);
         soapClient.setRequireAuth(true);
-        soapClient.setUsername("123");
-        soapClient.setPassword("123");
+        soapClient.setUsername("test");
+        soapClient.setPassword("test");
         CcCodingService port = soapClient.creatServiceInstance(CcCodingService.class);
         String result = port.saveCcCoding(getCcCondingDTO());
         System.out.println("返回结果:" + result);
@@ -60,8 +60,8 @@ public class CcCodingClient {
              JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
              // 设置代理地址
              jaxWsProxyFactoryBean.setAddress(address);
-            jaxWsProxyFactoryBean.setUsername("123");
-            jaxWsProxyFactoryBean.setPassword("123");
+            jaxWsProxyFactoryBean.setUsername("admin");
+            jaxWsProxyFactoryBean.setPassword("admin");
              // 设置接口类型
              jaxWsProxyFactoryBean.setServiceClass(CcCodingService.class);
              // 创建一个代理接口实现
