@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class AuthHost {
 
-    private int id;
+    private Integer id;
 
     private String host;
 }
