@@ -3,6 +3,7 @@ package com.yu.service.impl;
 import com.yu.service.CcCodingService;
 import com.yu.service.dto.AttributeValueDTO;
 import com.yu.service.dto.CcCodingDTO;
+import org.apache.cxf.interceptor.InInterceptors;
 import org.springframework.stereotype.Component;
 
 import javax.jws.WebService;
@@ -13,6 +14,7 @@ import java.util.List;
  * @Date: 2019-3-6
  * @Description: cc 编码服务 实现
  */
+@InInterceptors(interceptors = "com.yu.interceptor.AuthInterceptor")
 @WebService(serviceName = "CcCodingService", // 与接口中指定的name一致
         targetNamespace = "http://service.yu.com", // 与接口中的命名空间一致,一般是接口的包名倒
         endpointInterface = "com.yu.service.CcCodingService"// 接口地址

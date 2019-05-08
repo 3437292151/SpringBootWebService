@@ -1,6 +1,7 @@
 package com.yu.confing;
 
-import com.yu.service.AttributeValueService;
+//import com.yu.interceptor.AuthInterceptor;
+import com.yu.repository.AuthUserDao;
 import com.yu.service.CcCodingService;
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus;
@@ -11,9 +12,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
 import javax.xml.ws.Endpoint;
-import java.util.Map;
 
 /**
  * @Auther: yuchanglong
@@ -30,11 +29,11 @@ public class WebServiceConfig {
     private CcCodingService ccCodingService;
 
     @Autowired
-    private AttributeValueService attributeValueService;
+    private AuthUserDao authUserDao;
 
 
     @Bean
-    public ServletRegistrationBean dispatcherServlet1(){
+    public ServletRegistrationBean dispatcherCXFServlet(){
         return new ServletRegistrationBean(new CXFServlet(), "/service/*");//发布服务名称
     }
 
@@ -47,9 +46,8 @@ public class WebServiceConfig {
     @Bean
     public Endpoint endpoint(){
 
-        Object[] im = new Object[]{ccCodingService, attributeValueService};
-
         EndpointImpl endpoint = new EndpointImpl(bus, ccCodingService);
+        //endpoint.getOutInterceptors().add(new AuthInterceptor(authUserDao));
         //endpoint.s
         endpoint.publish("/ccCoding");
         return endpoint;
