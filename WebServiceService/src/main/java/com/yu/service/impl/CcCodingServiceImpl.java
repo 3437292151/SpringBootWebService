@@ -1,7 +1,6 @@
 package com.yu.service.impl;
 
 import com.yu.service.CcCodingService;
-import com.yu.service.dto.AttributeValueDTO;
 import com.yu.service.dto.CcCodingDTO;
 import org.apache.cxf.interceptor.InInterceptors;
 import org.springframework.stereotype.Component;

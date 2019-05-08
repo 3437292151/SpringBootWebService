@@ -1,6 +1,5 @@
 package com.yu.service;
 
-import com.yu.service.dto.AttributeValueDTO;
 import com.yu.service.dto.CcCodingDTO;
 
 import javax.jws.WebMethod;
