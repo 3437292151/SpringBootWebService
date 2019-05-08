@@ -28,10 +28,6 @@ public class WebServiceConfig {
     @Autowired
     private CcCodingService ccCodingService;
 
-    @Autowired
-    private AuthUserDao authUserDao;
-
-
     @Bean
     public ServletRegistrationBean dispatcherCXFServlet(){
         return new ServletRegistrationBean(new CXFServlet(), "/service/*");//发布服务名称
@@ -47,22 +43,8 @@ public class WebServiceConfig {
     public Endpoint endpoint(){
 
         EndpointImpl endpoint = new EndpointImpl(bus, ccCodingService);
-        //endpoint.getOutInterceptors().add(new AuthInterceptor(authUserDao));
-        //endpoint.s
         endpoint.publish("/ccCoding");
         return endpoint;
     }
-
-
-    /*@Bean
-    public Endpoint endpoint1(){
-
-        Object[] im = new Object[]{ccCodingService, attributeValueService};
-
-        EndpointImpl endpoint = new EndpointImpl(bus, attributeValueService);
-        //endpoint.s
-        endpoint.publish("/attribute");
-        return endpoint;
-    }*/
 
 }
