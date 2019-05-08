@@ -1,24 +1,19 @@
 package com.yu.client;
 
-
-
 import com.yu.service.CcCodingAttributeInfoDTO;
 import com.yu.service.CcCodingDTO;
 import com.yu.service.CcCodingDescDTO;
 import com.yu.service.CcCodingService;
-import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
-import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * @Auther: yuchanglong
  * @Date: 2019-3-6
- * @Description:
+ * @Description: 测试client
  */
 public class CcCodingClient {
-    public static ClassLoader cl = Thread.currentThread().getContextClassLoader();
 
     public static void main(String args[]) throws Exception{
 
