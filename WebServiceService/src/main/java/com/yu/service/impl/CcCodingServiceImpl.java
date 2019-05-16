@@ -1,7 +1,9 @@
 package com.yu.service.impl;
 
+import com.yu.domain.AuthUser;
 import com.yu.service.CcCodingService;
 import com.yu.service.dto.CcCodingDTO;
+import com.yu.util.WebServiceContextUtil;
 import org.apache.cxf.interceptor.InInterceptors;
 import org.springframework.stereotype.Component;
 
@@ -23,8 +25,11 @@ public class CcCodingServiceImpl implements CcCodingService {
 
     @Override
     public String saveCcCoding(List<CcCodingDTO> ccCodingArray) {
-
+        AuthUser authUser = (AuthUser) WebServiceContextUtil.getAttribute("userName");
+        String remoteAddr = WebServiceContextUtil.getRemoteAddr();
         System.out.println(ccCodingArray);
+        System.out.println(authUser);
+        System.out.println(remoteAddr);
 
         return "ok!";
     }

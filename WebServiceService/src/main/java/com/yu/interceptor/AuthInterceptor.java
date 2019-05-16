@@ -60,6 +60,7 @@ public class AuthInterceptor extends AbstractSoapInterceptor {
             throw new Fault(exception);
         }
 
+
         //认证是否添加权限
         String auth = request.getHeader("Authorization");
         if (auth == null) {
@@ -92,7 +93,7 @@ public class AuthInterceptor extends AbstractSoapInterceptor {
             SOAPException exception = new SOAPException("auth failed, username or password error");
             throw new Fault(exception);
         }
-
+        request.setAttribute("userName", authUser);
 
     }
 }
