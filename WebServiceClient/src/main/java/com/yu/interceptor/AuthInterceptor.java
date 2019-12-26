@@ -19,7 +19,7 @@ import org.w3c.dom.Element;
 /**
  * 类说明
  * 用于調用webservices接口的安全验证拦截器
- * @author kim
+ * @author yuchanglong
  * @createDate 2017-10-20 下午8:53:16
  * @version V1.0
  */

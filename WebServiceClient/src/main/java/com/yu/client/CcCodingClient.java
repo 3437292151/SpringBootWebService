@@ -17,8 +17,8 @@ public class CcCodingClient {
 
     public static void main(String args[]) throws Exception{
 
-        jaxWsProxyFactoryBean();
-        //testSoapClient();
+        //jaxWsProxyFactoryBean();
+        testSoapClient();
     }
 
     /**
@@ -28,7 +28,7 @@ public class CcCodingClient {
      **/
     public static void testSoapClient() throws Exception {
         // 接口地址
-        String address = "http://localhost:8080/service/ccCoding?wsdl";
+        String address = "http://localhost:8081/service/ccCoding?wsdl";
         String namespaceURI = "http://service.yu.com";
         String localPart = "CcCodingService";
         SoapClient soapClient = new SoapClient(address, namespaceURI, localPart);
@@ -50,7 +50,7 @@ public class CcCodingClient {
 
         try {
              // 接口地址
-             String address = "http://localhost:8080/service/ccCoding?wsdl";
+             String address = "http://localhost:8081/service/ccCoding?wsdl";
              // 代理工厂
              JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
              // 设置代理地址
